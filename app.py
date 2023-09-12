@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from links import Links
 
 app = Flask(__name__)
 HOST = "127.0.0.1"
@@ -15,20 +16,6 @@ class Settings:
     encription = "AES-256-GCM"
 
 
-class Links:
-    android_client = (
-        "https://play.google.com/store/apps/details?id=com.github.shadowsocks"
-    )
-    windows_client = "https://github.com/shadowsocks/shadowsocks-windows/releases/download/4.4.1.0/Shadowsocks-4.4.1.0.zip"
-    ios_client = (
-        "https://apps.apple.com/us/app/sockswitch-shadowsocks-client/id1453207024"
-    )
-    rutor = 'http://rutor.info/'
-    rutracker = 'https://rutracker.org/forum/index.php'
-    flibusta = 'https://flibusta.is/'
-    instagram = 'https://www.instagram.com/'
-
-
 @app.route("/")
 def index():
     ip_addr = request.remote_addr
@@ -40,7 +27,7 @@ def index():
         settings=Settings,
         links=Links,
         ip_addr=ip_addr,
-        check=check
+        check=check,
     )
 
 
