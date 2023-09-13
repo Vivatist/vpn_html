@@ -4,60 +4,122 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>Свободный VPN</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+  <link href="static/app.css" rel="stylesheet">
 </head>
 
+
+
 <body>
+  <main>
+
+    <div class="px-4 py-5 text-center">
+      
+      {% if check %}
+      <div class='alert alert-success' role="alert">
+        Ваш IP: {{ ip_addr }}, VPN успешно подключен. Вы можете <a href="#test" class="alert-link">пользоваться заблокированными ресурсами</a>.'
+      </div>
+      {% else %}
+      <div class='alert alert-danger' role="alert">
+        Ваш IP: {{ ip_addr }}, убедитесь что на вашем устройстве установлен и запущен клиент Shadowsocks и перезагрузите страницу.
+      </div>
+      {% endif %}
+
+      <img class="d-block mx-auto mb-4" src="{{ logo_img }}" alt="">
+      <h1 class="display-5 fw-bold">Свободный VPN</h1>
+      <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">Вы находитесь на сайте свободного проекта, который предоставляет бесплатный, анонимный и
+          неограниченный по скорости VPN на основе технологии Shadowsocks. Физически сервер находится в Германии. Поддерживаются платформы Windows, Android и
+          iOs. Для начала работы скачайте клиент для своего устройства.</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <a class='btn btn-outline-secondary btn-lg px-4' href="{{ links.windows_client }}"><img style="padding: 3px;"
+              src='static/logo_windows.png' width="30" height="30">Windows</a>
+          <a class='btn btn-outline-secondary btn-lg px-4' href="{{ links.android_client }}"><img style="padding: 3px;"
+              src='static/logo_android.png' width="30" height="30">Android</a>
+          <a class='btn btn-outline-secondary btn-lg px-4' href="{{ links.ios_client }}"><img style="padding: 3px;"
+              src='static/logo_apple.png' width="30" height="30">Apple</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Разделитель -->
+    <div class="b-example-divider"></div>
+
+    <div class="px-4 pt-3 my-3 text-center border-bottom">
 
 
-  <p>&nbsp;<img src="{{ logo_img }}" /></p>
-  <h1>Инструкция</h1>
-  <ol>
-    <li>Скачать и установить клиент для вашей операционной системы</li>
-    <li>Запустить клиент и добавить новый сервер с помощью QR-кода либо с помощью ручной настройки.</li>
-    <li>Для проверки включите VPN и обновите эту страницу. Смотрите раздел "Проверка"</li>
-  </ol>
-  <h1>Ссылки на скачивание клиента</h1>
-  <p><a href="{{ links.windows_client }}">Клиент для Windows</a></p>
-  <p><a href="{{ links.android_client }}">Клиент для Андроид</a></p>
-  <p><a href="{{ links.ios_client }}">Клиент для Iphone</a></p>
-  <h1>QR-код для настройки</h1>
-  <p><img src="{{ qr_img }}" alt="QR-code" width="350" height="350" /></p>
-  <h1>Ручные настройки</h1>
-  <ul>
-    <li>Сервер (IP) - {{ settings.host }}</li>
-    <li>Порт - {{ settings.port }}</li>
-    <li>Пароль - {{ settings.password }}</li>
-    <li>Метод шифрования - {{ settings.encription }}</li>
-  </ul>
-  <h1>Проверка</h1>
-  <ul>
 
-    {% if check %}
-    {% set txt_class = "badge text-bg-success" %}
-    {% set txt_text = 'работает' %}
-    {% set txt_annotation = 'вы можете пользоваться заблокированными ресурсами, сайты будут считать что вы работаете с
-    ip-адреса этого сервера.' %}
-    {% else %}
-    {% set txt_class = "badge text-bg-danger" %}
-    {% set txt_text = 'не работает' %}
-    {% set txt_annotation = 'убедитесь что на вашем устройстве установлен и запущен клиент Shadowsocks и перезагрузите
-    страницу' %}
-    {% endif %}
+      <div class="container col-xxl-8 px-4 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+          <div class="col-10 col-sm-8 col-lg-6">
+            <img src="{{ qr_img }}" class="d-block mx-lg-auto img-thumbnail float-end" alt="Bootstrap Themes" width="350"
+              height="350" loading="lazy">
+          </div>
+          <div class="col-lg-6">
+            <h1 class="display-5 fw-bold lh-1 mb-3">Как использовать</h1>
+            <p class="lead">
+            <ol class="lead mb-4">
+              <li>Скачать и установить клиент для вашей операционной системы</li>
+              <li>Запустить клиент и добавить новый сервер с помощью QR-кода либо с помощью ручной настройки.</li>
+              <li>Для проверки включите VPN и обновите эту страницу. Смотрите раздел "Проверка"</li>
+            </ol>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+              <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Primary</button>
+              <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+  
+      <h1>Ссылки на скачивание клиента</h1>
+      <p><a href="{{ links.windows_client }}">Клиент для Windows</a></p>
+      <p><a href="{{ links.android_client }}">Клиент для Андроид</a></p>
+      <p><a href="{{ links.ios_client }}">Клиент для Iphone</a></p>
+  
+      <h1>Ручные настройки</h1>
+      <ul>
+        <li>Сервер (IP) - {{ settings.host }}</li>
+        <li>Порт - {{ settings.port }}</li>
+        <li>Пароль - {{ settings.password }}</li>
+        <li>Метод шифрования - {{ settings.encription }}</li>
+      </ul>
+      
+      <h1 id="test">Попробуйте открыть некоторые заблокированные сайты</h1>
+      <ul>
+        <li><a href="{{ links.rutor }}">Rutor - торренты на любой вкус, в том числе новинки кино</a></li>
+        <li><a href="{{ links.rutracker }}">Rutracker - огромное количество торрентов с удобным поиском</a></li>
+        <li><a href="{{ links.flibusta }}">Флибуста - лучшая онлайн библиотека</a></li>
+        <li><a href="{{ links.instagram }}">Instagram - инстаграм</a></li>
+      </ul>
+  
+  
+    </div>
+    <!-- Разделитель -->
+    <div class="b-example-divider"></div> 
+  </main>
 
-    <li>В настоящий момент ваш VPN <span class="{{ txt_class }}"> {{ txt_text }} </span></li>
-    <li>Ваш IP: {{ ip_addr }}, {{txt_annotation}}</li>
-  </ul>
-  <h1>Попробуйте открыть некоторые заблокированные сайты</h1>
-  <ul>
-    <li><a href="{{ links.rutor }}">Rutor - торренты на любой вкус, в том числе новинки кино</a></li>
-    <li><a href="{{ links.rutracker }}">Rutracker - огромное количество торрентов с удобным поиском</a></li>
-    <li><a href="{{ links.flibusta }}">Флибуста - лучшая онлайн библиотека</a></li>
-    <li><a href="{{ links.instagram }}">Instagram - инстаграм</a></li>
-  </ul>
 
+
+ 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
