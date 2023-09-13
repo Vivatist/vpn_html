@@ -8,7 +8,3 @@ class Links:
     ios_client = (
         "https://apps.apple.com/us/app/sockswitch-shadowsocks-client/id1453207024"
     )
-    rutor = 'http://rutor.info/'
-    rutracker = 'https://rutracker.org/forum/index.php'
-    flibusta = 'https://flibusta.is/'
-    instagram = 'https://www.instagram.com/'
