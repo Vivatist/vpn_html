@@ -34,8 +34,7 @@
     <div class="px-4 py-5 text-center">
       {% if check %}
       <div class='alert alert-success' role="alert">
-        Ваш текущий IP: {{ ip_addr }}, VPN успешно подключен. Вы можете <a href="#test" class="alert-link">пользоваться
-          заблокированными ресурсами</a>.'
+        Ваш текущий IP: {{ ip_addr }}, VPN успешно подключен. Вы можете пользоваться <a href="#test" class="alert-link">заблокированными ресурсами</a>.'
       </div>
       {% else %}
       <div class='alert alert-warning' role="alert">
@@ -49,7 +48,7 @@
         <p class="lead mb-4">Вы находитесь на сайте свободного проекта, который предоставляет бесплатный, анонимный и
           неограниченный по скорости VPN на основе технологии Shadowsocks. Физически сервер находится в Германии.
           Поддерживаются платформы Windows, Android и
-          iOs. Для начала работы скачайте клиент для своего устройства.</p>
+          iOs. Для начала работы скачайте и установите клиент для своего устройства.</p>
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
           <a class='btn btn-outline-secondary btn-lg px-4' href="{{ links.windows_client }}"><img style="padding: 3px;"
               src='static/logo_windows.png' width="30" height="30">Windows</a>
@@ -104,7 +103,7 @@
 
 
     <div class="bg-dark text-secondary px-4 py-5 text-center">
-      <div class="py-5">
+      <div id="test" class="py-5">
         <h1 class="display-5 fw-bold text-white">Заблокированные ресурсы</h1>
         <div class="col-lg-6 mx-auto">
           <p class="fs-5 mb-4">для проверки работоспособности VPN</p>
@@ -161,26 +160,19 @@
             </div>
           </div>
 
-          <p class="fs-5 mb-2">"...
+          <p class="fs-5 mb-4">&#171;...
             В первом полугодии по требованию Роскомнадзора в России заблокировано или удалено более 885 тыс. сайтов с
             запрещенной законодательством информацией, что на 85% больше, чем за аналогичный период 2022 года,
             рассказали “Коммерсант” в ведомстве. Также выросло количество заблокированных или удаленных отдельных
             материалов в
-            сети — до 1,1 млн, что на 10% больше, чем за весь 2022 год...."
+            сети — до 1,1 млн, что на 10% больше, чем за весь 2022 год ...&#187; 
             <a href="https://www.kommersant.ru/doc/6199119"
               class="opacity-50 text-nowrap link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Источник
               -></a>
           </p>
-          <div class="text-end mb-4">
-
-          </div>
 
 
-          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-            <button type="button" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold">Пользовательская
-              кнопка</button>
-            <button type="button" class="btn btn-outline-light btn-lg px-4">Вторичная</button>
-          </div>
+
         </div>
       </div>
     </div>
@@ -188,6 +180,15 @@
 
     <!-- Разделитель -->
     <div class="b-example-divider"></div>
+
+      <div class="px-4 py-5 text-center">
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <a class="btn btn-outline-secondary btn-lg px-4"
+            href="https://rkn.gov.ru/"><img
+              style="padding: 3px;" src="static/logo_telegram.png" width="30" height="30">Техподдержка</a>
+          
+        </div>
+      </div>
 
 
   </main>

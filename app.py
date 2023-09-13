@@ -10,7 +10,7 @@ ENCRIPTION = "AES-256-GCM"
 
 
 class Settings:
-    host = "127.0.0.0"
+    host = "127.0.0.1"
     port = "14983"
     password = "238938"
     encription = "AES-256-GCM"
