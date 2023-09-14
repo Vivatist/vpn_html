@@ -31,165 +31,206 @@
 <body>
   <main>
 
-    <div class="px-4 py-5 text-center">
+    <section id="notification">
       {% if check %}
-      <div class='alert alert-success' role="alert">
+      <div class='alert alert-success mx-4' role="alert">
         Ваш текущий IP: {{ ip_addr }}, VPN успешно подключен. Вы можете пользоваться <a href="#test"
           class="alert-link">заблокированными ресурсами</a>.'
       </div>
       {% else %}
-      <div class='alert alert-warning' role="alert">
+      <div class='alert alert-warning mx-4' px-4 py-5 role="alert">
         В настоящий момент вы не подключены к нашему серверу. Воспользуйтесь инструкцией ниже и <a href="#"
           class="alert-link">перезагрузите страницу</a> для повторной проверки.
       </div>
       {% endif %}
-      <img class="d-block mx-auto mb-4" src="{{ logo_img }}" alt="">
-      <h1 class="display-5 fw-bold">Свободный VPN</h1>
-      <div class="col-lg-6 mx-auto">
-        <p class="lead mb-4">Вы находитесь на сайте свободного проекта, который предоставляет бесплатный, анонимный и
-          неограниченный по скорости VPN на основе технологии Shadowsocks. Физически сервер находится в Германии.
-          Поддерживаются платформы Windows, Android и
-          iOs. Для начала работы скачайте и установите клиент для своего устройства.</p>
-        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-          <a class='btn btn-outline-secondary btn-lg px-4' href="{{ links.windows_client }}"><img style="padding: 3px;"
-              src='static/logo_windows.png' width="30" height="30">Windows</a>
-          <a class='btn btn-outline-secondary btn-lg px-4' href="{{ links.android_client }}"><img style="padding: 3px;"
-              src='static/logo_android.png' width="30" height="30">Android</a>
-          <a class='btn btn-outline-secondary btn-lg px-4' href="{{ links.ios_client }}"><img style="padding: 3px;"
-              src='static/logo_apple.png' width="30" height="30">Apple</a>
-        </div>
-      </div>
-    </div>
+    </section>
 
-
-    <!-- Разделитель -->
-    <div class="b-example-divider"></div>
-
-
-    <div class="px-4 pt-3 my-3 text-center border-bottom">
-      <div class="container col-xxl-8 px-4 py-5">
-        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-          <div class="col-10 col-sm-8 col-lg-6">
-            <img src="{{ qr_img }}" class="d-block mx-lg-auto img-thumbnail float-end" alt="Bootstrap Themes"
-              width="350" height="350" loading="lazy">
-          </div>
-          <div class="col-lg-6">
-            <h1 class="display-5 fw-bold lh-1 mb-3">Как использовать</h1>
-            <p class="lead">
-            <ol class="lead mb-4">
-              <li>Скачать и установить клиент для вашей операционной системы</li>
-              <li>Запустить клиент и добавить новый сервер с помощью QR-кода либо с помощью ручной настройки.</li>
-              <li>Для проверки включите VPN и обновите эту страницу. Смотрите раздел "Проверка"</li>
-            </ol>
-            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-              <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Primary</button>
-              <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <h1>Ручные настройки</h1>
-      <ul>
-        <li>Сервер (IP) - {{ settings.host }}</li>
-        <li>Порт - {{ settings.port }}</li>
-        <li>Пароль - {{ settings.password }}</li>
-        <li>Метод шифрования - {{ settings.encription }}</li>
-      </ul>
-
-    </div>
-
-
-    <!-- Разделитель -->
-    <div class="b-example-divider"></div>
-
-
-    <div class="bg-dark text-secondary px-4 py-5 text-center">
-      <div id="test" class="py-5">
-        <h1 class="display-5 fw-bold text-white">Заблокированные ресурсы</h1>
+    <section id="download">
+      <div class="px-4 py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="{{ logo_img }}" alt="">
+        <h1 class="display-5 fw-bold">Свободный VPN</h1>
         <div class="col-lg-6 mx-auto">
-          <p class="fs-5 mb-4">для проверки работоспособности VPN</p>
-          <div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
-            <div class="list-group">
-              <a href="'https://rutracker.org/forum/index.php'"
-                class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-                <img src="http://favicon.yandex.net/favicon/rutracker.org" alt="twbs" width="16" height="16" class="">
-                <div class="d-flex gap-2 w-100 justify-content-between">
-                  <div>
-                    <h6 class="mb-0">RuTracker.org (ранее — Torrents.ru)</h6>
-                    <p class="mb-0 opacity-75">Крупнейший русскоязычный BitTorrent-трекер. По состоянию на конец 2023
-                      года насчитывает более 14 миллионов пользователей, на трекере зарегистрировано более 2,242
-                      миллиона «живых» раздач, суммарный размер раздач трекера составляет более 5,222 петабайт.</p>
-                  </div>
-                </div>
-              </a>
-              <a href="http://rutor.info/" class="list-group-item list-group-item-action d-flex gap-3 py-3"
-                aria-current="true">
-                <img src="http://favicon.yandex.net/favicon/rutor.info" alt="twbs" width="16" height="16" class="">
-                <div class="d-flex gap-2 w-100 justify-content-between">
-                  <div>
-                    <h6 class="mb-0">Rutor</h6>
-                    <p class="mb-0 opacity-75">Один из самых популярных российских ресурсов, по обмену торрент-файлами.
-                      Фильмы, сериалы, музыка, программы, игры и т.п. Активное сообщество. Ежедневно появляются сотни
-                      новых раздач. Без регистрации.</p>
-                  </div>
-                </div>
-              </a>
-              <a href='https://flibusta.is/' class="list-group-item list-group-item-action d-flex gap-3 py-3"
-                aria-current="true">
-                <img src="http://flibusta.is/sites/default/files/bluebreeze_favicon.ico" alt="twbs" width="16"
-                  height="16" class="">
-                <div class="d-flex gap-2 w-100 justify-content-between">
-                  <div>
-                    <h6 class="mb-0">Флибуста</h6>
-                    <p class="mb-0 opacity-75"> Бесплатная некоммерческая библиотека. На этом сайте можно бесплатно
-                      читать и скачивать огромное количество книг. Удобный подбор книг по интересам, жанрам, поджанрам и
-                      т.п. На 2021 год 476 165 томов, 172 976 авторов, 1037 гигабайт</p>
-                  </div>
-                </div>
-              </a>
-              <a href='https://www.instagram.com/' class="list-group-item list-group-item-action d-flex gap-3 py-3"
-                aria-current="true">
-                <img src="http://favicon.yandex.net/favicon/instagram.com" alt="twbs" width="16" height="16" class="">
-                <div class="d-flex gap-2 w-100 justify-content-between">
-                  <div>
-                    <h6 class="mb-0">Instagram</h6>
-                    <p class="mb-0 opacity-75">Одна из крупнейших соцсетей. Была заблокирвана практически сразу после
-                      начала СВО на Украине.</p>
-                  </div>
-                </div>
-              </a>
-            </div>
+          <p class="lead mb-4">Вы находитесь на сайте свободного проекта, который предоставляет бесплатный, анонимный и
+            неограниченный по скорости VPN на основе технологии Shadowsocks. Физически сервер находится в Германии.
+            Поддерживаются платформы Windows, Android и
+            iOs. Для начала работы скачайте и установите клиент для своего устройства.</p>
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <a class='btn btn-outline-secondary btn-lg px-4' href="{{ links.windows_client }}"><img
+                style="padding: 3px;" src='static/logo_windows.png' width="30" height="30">Windows</a>
+            <a class='btn btn-outline-secondary btn-lg px-4' href="{{ links.android_client }}"><img
+                style="padding: 3px;" src='static/logo_android.png' width="30" height="30">Android</a>
+            <a class='btn btn-outline-secondary btn-lg px-4' href="{{ links.ios_client }}"><img style="padding: 3px;"
+                src='static/logo_apple.png' width="30" height="30">Apple</a>
           </div>
-          <p class="fs-5 mb-4">
-            В каких странах запрещен VPN: Китай, Россия, Беларусь, Северная Корея, Туркменистан, Уганда, Ирак, Турция,
-            ОАЭ и Оман.
-          </p>
-          <p class="fs-5 mb-4">&#171;...
-            В первом полугодии по требованию Роскомнадзора в России заблокировано или удалено более 885 тыс. сайтов с
-            запрещенной законодательством информацией, что на 85% больше, чем за аналогичный период 2022 года,
-            рассказали “Коммерсант” в ведомстве. Также выросло количество заблокированных или удаленных отдельных
-            материалов в
-            сети — до 1,1 млн, что на 10% больше, чем за весь 2022 год ...&#187;
-            <a href="https://www.kommersant.ru/doc/6199119"
-              class="opacity-50 text-nowrap link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Источник
-              -></a>
-          </p>
         </div>
       </div>
-    </div>
+    </section>
+
+    <section id="instruction">
 
 
-    <!-- Разделитель -->
-    <div class="b-example-divider"></div>
 
 
-    <div class="px-4 py-5 text-center">
-      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-        <a class="btn btn-outline-secondary btn-lg px-4" href="https://rkn.gov.ru/">
-          <img style="padding: 3px;" src="static/logo_telegram.png" width="30" height="30">Техподдержка</a>
+      <div class="px-8 pt-3 my-3 text-center border-bottom">
+        <div class="container col-xxl-8 px-4 py-5">
+          <div class="row g-5 py-5 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col-md-6 p-4 d-flex flex-column position-static">
+              <strong class="d-inline-block mb-2 text-primary">Мир</strong>
+              <h3 class="mb-0">Рекомендуемый пост</h3>
+              <div class="mb-1 text-muted">12 Ноября</div>
+              <p class="card-text mb-auto">Это более широкая карточка с вспомогательным текстом ниже в качестве
+                естественного перехода к дополнительному контенту.</p>
+              <a href="#" class="stretched-link">Продолжить чтение</a>
+            </div>
+            <div class="col-md-6 p-4 d-lg-block">
+              <img src="{{ qr_img }}" class="rounded mx-auto d-block img-thumbnail" alt="Bootstrap Themes"
+                width="350" height="350" loading="lazy">
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
+
+
+    <section id="OLD-instruction">
+      <!-- Разделитель -->
+      <div class="b-example-divider"></div>
+
+      <div class="px-4 pt-3 my-3 text-center border-bottom">
+        <div class="container col-xxl-8 px-4 py-5">
+          <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+            <div class="col-10 col-sm-8 col-lg-6">
+              <img src="{{ qr_img }}" class="d-block mx-lg-auto img-thumbnail float-end" alt="Bootstrap Themes"
+                width="350" height="350" loading="lazy">
+            </div>
+            <div class="col-lg-6">
+              <h1 class="display-5 fw-bold lh-1 mb-3">Как использовать</h1>
+              <p class="lead">
+              <ol class="lead mb-4">
+                <li>Скачать и установить клиент для вашей операционной системы</li>
+                <li>Запустить клиент и добавить новый сервер с помощью QR-кода либо с помощью ручной настройки.</li>
+                <li>Для проверки включите VPN и обновите эту страницу. Смотрите раздел "Проверка"</li>
+              </ol>
+              <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Primary</button>
+                <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h1>Ручные настройки</h1>
+        <ul>
+          <li>Сервер (IP) - {{ settings.host }}</li>
+          <li>Порт - {{ settings.port }}</li>
+          <li>Пароль - {{ settings.password }}</li>
+          <li>Метод шифрования - {{ settings.encription }}</li>
+        </ul>
+
+      </div>
+
+    </section>
+
+    <section id="blocked_site">
+
+      <!-- Разделитель -->
+      <div class="b-example-divider"></div>
+
+      <div class="bg-dark text-secondary px-4 py-5 text-center">
+        <div class="py-5">
+          <h1 class="display-5 fw-bold text-white">Заблокированные ресурсы</h1>
+          <div class="col-lg-6 mx-auto">
+            <p class="fs-5 mb-4">для проверки работоспособности VPN</p>
+            <div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
+              <div class="list-group">
+                <a href="'https://rutracker.org/forum/index.php'"
+                  class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+
+                  <div class="d-flex gap-2 w-100 justify-content-between">
+                    <div>
+                      <h6 class="mb-0"><img src="static/logo_rutracker.png"> RuTracker.org (ранее — Torrents.ru)</h6>
+                      <p class="mb-0 opacity-75">Крупнейший русскоязычный BitTorrent-трекер. На конец 2023
+                        года более 14 миллионов пользователей, более 2,242 миллиона «живых» раздач, суммарный размер
+                        раздач трекера составляет более 5,222 петабайт.</p>
+                    </div>
+                  </div>
+                </a>
+                <a href="http://rutor.info/" class="list-group-item list-group-item-action d-flex gap-3 py-3"
+                  aria-current="true">
+
+                  <div class="d-flex gap-2 w-100 justify-content-between">
+                    <div>
+                      <h6 class="mb-0"><img src="static/logo_rutor.png"> Rutor</h6>
+                      <p class="mb-0 opacity-75">Один из самых популярных российских ресурсов, по обмену
+                        торрент-файлами. Фильмы, сериалы, музыка, программы, игры и т.п. Активное сообщество. Ежедневно
+                        появляются сотни новых раздач. Без регистрации.</p>
+                    </div>
+                  </div>
+                </a>
+                <a href='https://flibusta.is/' class="list-group-item list-group-item-action d-flex gap-3 py-3"
+                  aria-current="true">
+                  <div class="d-flex gap-2 w-100 justify-content-between">
+                    <div>
+                      <h6 class="mb-0"> <img src="static/logo_flibusta.png"> Флибуста</h6>
+                      <p class="mb-0 opacity-75"> Бесплатная некоммерческая библиотека. Удобный подбор книг по
+                        интересам, жанрам, поджанрам
+                        и т.п. На 2021 год 476 165 томов, 172 976 авторов, 1037 гигабайт</p>
+                    </div>
+                  </div>
+                </a>
+                <a href='https://www.instagram.com/' class="list-group-item list-group-item-action d-flex gap-3 py-3"
+                  aria-current="true">
+
+                  <div class="d-flex gap-2 w-100 justify-content-between">
+                    <div>
+                      <h6 class="mb-0"><img src="static/logo_instagram.png"> Instagram</h6>
+                      <p class="mb-0 opacity-75">Одна из крупнейших соцсетей. Была заблокирвана практически сразу после
+                        начала СВО на Украине.</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <p class="fs-5 mb-4">
+              В каких ещё странах блокируют VPN: Китай, Беларусь, Северная Корея, Туркменистан, Уганда, Ирак, Турция,
+              ОАЭ и Оман.
+            </p>
+            <p class="fs-5 mb-4">&#171;...
+              В первом полугодии по требованию Роскомнадзора в России заблокировано или удалено более 885 тыс. сайтов с
+              запрещенной законодательством информацией, что на 85% больше, чем за аналогичный период 2022 года,
+              рассказали “Коммерсант” в ведомстве. Также выросло количество заблокированных или удаленных отдельных
+              материалов в сети — до 1,1 млн, что на 10% больше, чем за весь 2022 год ...&#187;
+              <a href="https://www.kommersant.ru/doc/6199119"
+                class="opacity-50 text-nowrap link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Источник
+                -></a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="support">
+      <!-- Разделитель -->
+      <div class="b-example-divider"></div>
+
+      <div class="px-4 py-5 text-center">
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <a class="btn disabled  btn-outline-secondary btn-lg px-4" href="https://rkn.gov.ru/">
+            <img style="padding: 3px;" src="static/logo_telegram.png" width="30" height="30">Техподдержка</a>
+        </div>
+      </div>
+
+    </section>
+
+
+
+
+
+
+
+
+
+
 
 
   </main>
