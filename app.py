@@ -10,10 +10,12 @@ ENCRIPTION = "AES-256-GCM"
 
 
 class Settings:
-    host = "127.0.0.1"
+    url = "http://sssvpn.ru"
+    host = HOST
     port = "14983"
     password = "238938"
     encription = "AES-256-GCM"
+    ss_link = "ss://YWVzLTI1Ni1nY206MjM4OTM4@5.104.108.237:14983/#sssvpn.ru"
 
 
 @app.route("/")
@@ -22,8 +24,6 @@ def index():
     check = ip_addr == Settings.host
     return render_template(
         "index.html",
-        logo_img="static/logo.png",
-        qr_img="static/qr_img.png",
         settings=Settings,
         links=Links,
         ip_addr=ip_addr,
@@ -32,4 +32,4 @@ def index():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, host=HOST, port=80)
+    app.run(debug=False, host=HOST, port=80)
