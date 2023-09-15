@@ -5,15 +5,15 @@ app = Flask(__name__)
 
 
 class Settings:
-    debug = True
+    debug = False
     url = "http://sssvpn.ru"
     url_support = "https://t.me/+ecJ5dcYOpos0OTgy"
-    host = "127.0.0.1"
-    # host = "5.104.108.237"
+    # host = "127.0.0.1"
+    host = "5.104.108.237"
     port = "14983"
-    pasword = "238938"
+    password = "238938"
     encription = "AES-256-GCM"
-    sslink = "ss://YWVzLTI1Ni1nY206MjM4OTM4@5.104.108.237:14983/#sssvpn.ru"
+    ss_link = "ss://YWVzLTI1Ni1nY206MjM4OTM4@5.104.108.237:14983/#sssvpn.ru"
 
 
 @app.route("/")
@@ -30,4 +30,4 @@ def index():
 
 
 if __name__ == "__main__":
-    app.run(debug=Settings.debug, host=Settings.host, port=80)
+    app.run(debug=Settings.debug, host="0.0.0.0", port=5000)
