@@ -2,20 +2,18 @@ from flask import Flask, render_template, request
 from links import Links
 
 app = Flask(__name__)
-HOST = "127.0.0.1"
-# HOST = "5.104.108.237"
-PORT = "14983"
-PASSWORD = "238938"
-ENCRIPTION = "AES-256-GCM"
 
 
 class Settings:
+    debug = True
     url = "http://sssvpn.ru"
-    host = HOST
+    url_support = "https://t.me/+ecJ5dcYOpos0OTgy"
+    host = "127.0.0.1"
+    # host = "5.104.108.237"
     port = "14983"
-    password = "238938"
+    pasword = "238938"
     encription = "AES-256-GCM"
-    ss_link = "ss://YWVzLTI1Ni1nY206MjM4OTM4@5.104.108.237:14983/#sssvpn.ru"
+    sslink = "ss://YWVzLTI1Ni1nY206MjM4OTM4@5.104.108.237:14983/#sssvpn.ru"
 
 
 @app.route("/")
@@ -32,4 +30,4 @@ def index():
 
 
 if __name__ == "__main__":
-    app.run(debug=False, host=HOST, port=80)
+    app.run(debug=Settings.debug, host=Settings.host, port=80)
