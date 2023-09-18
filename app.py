@@ -7,7 +7,7 @@ app = Flask(__name__)
 class Settings:
     debug = False
     url = "http://sssvpn.ru"
-    url_support = "https://t.me/+ecJ5dcYOpos0OTgy"
+    url_support = "https://t.me/+hU9vIxKbtwg3ZGI6"
     # host = "127.0.0.1"
     host = "5.104.108.237"
     port = "14983"
