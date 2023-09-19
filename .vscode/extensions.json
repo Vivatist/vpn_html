@@ -1,5 +1,8 @@
 {
     "recommendations": [
-        "donjayamanne.python-extension-pack"
+        "donjayamanne.python-extension-pack",
+        "ms-python.flake8",
+        "ms-python.black-formatter",
+        "pkief.material-icon-theme"
     ]
 }
